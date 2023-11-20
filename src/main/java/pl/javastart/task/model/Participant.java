@@ -1,7 +1,5 @@
 package pl.javastart.task.model;
 
-import pl.javastart.task.model.comparator.ScoreComparator;
-
 import java.util.Objects;
 
 public class Participant implements Comparable<Participant> {
@@ -33,7 +31,7 @@ public class Participant implements Comparable<Participant> {
 
     @Override
     public int compareTo(Participant p) {
-        return new ScoreComparator().compare(this, p);
+        return Integer.compare(score, p.score);
     }
 
     /*

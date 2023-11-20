@@ -10,8 +10,13 @@ import java.util.Set;
 
 public class FileManager {
     private static final String FILE_NAME = "stats.csv";
+    private final ConsolePrinter printer;
 
-    public static void exportToCsv(Set<Participant> participants, ConsolePrinter printer) {
+    public FileManager(ConsolePrinter printer) {
+        this.printer = printer;
+    }
+
+    public void exportToCsv(Set<Participant> participants) {
         try (var fileWriter = new FileWriter(FILE_NAME);
             var writer = new BufferedWriter(fileWriter)
         ) {
